@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nx-bg: 248, 249, 249;
+  --color-nx-surface: 255, 255, 255;
+  --color-nx-ink: 35, 18, 22;
+  --color-nx-accent-pink: 187, 60, 115;
+  --color-nx-accent-coral: 239, 114, 95;
+  --color-nx-accent-mint: 110, 224, 214;
+  --color-nx-accent-lime: 164, 231, 100;
+  --color-nx-neutral-200: 228, 237, 236;
+  --color-nx-neutral-400: 156, 163, 175;
+
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --spacing-48: 12rem;
+  --spacing-64: 16rem;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-elev-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-elev-2: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-elev-3: 0 8px 16px rgba(0, 0, 0, 0.10);
+
+  --color-background: 255 255 255;
+  --color-foreground: 35 18 22;
+  --color-card: 255 255 255;
+  --color-card-foreground: 35 18 22;
+  --color-popover: 255 255 255;
+  --color-popover-foreground: 35 18 22;
+  --color-primary: 187 60 115;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 228 237 236;
+  --color-secondary-foreground: 35 18 22;
+  --color-muted: 228 237 236;
+  --color-muted-foreground: 156 163 175;
+  --color-accent: 110 224 214;
+  --color-accent-foreground: 35 18 22;
+  --color-destructive: 239 68 68;
+  --color-destructive-foreground: 255 255 255;
+  --color-border: 228 237 236;
+  --color-input: 228 237 236;
+  --color-ring: 110 224 214;
+
+  --radius: 8px;
+}
+
+@layer base {
+  * {
+    border-color: rgb(var(--color-border));
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--color-nx-bg));
+    color: rgb(var(--color-nx-ink));
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: rgb(var(--color-nx-ink));
+  }
+
+  h1 { 
+    font-size: 3rem; 
+    line-height: 1.05; 
+  }
+
+  h2 { 
+    font-size: 2.25rem; 
+    line-height: 1.1; 
+  }
+
+  h3 { 
+    font-size: 1.875rem; 
+    line-height: 1.15; 
+  }
+
+  h4 { 
+    font-size: 1.5rem; 
+    line-height: 1.2; 
+  }
+
+  h5 { 
+    font-size: 1.25rem; 
+    line-height: 1.25; 
+  }
+
+  h6 { 
+    font-size: 1.125rem; 
+    line-height: 1.25; 
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 150ms ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: rgb(var(--color-nx-accent-pink));
+    color: white;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: scale(1.05);
+  }
+
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--color-nx-accent-mint) / 0.5);
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  .btn-secondary {
+    background-color: rgb(var(--color-nx-accent-coral));
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: scale(1.05);
+  }
+
+  .btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--color-nx-accent-mint) / 0.5);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(1px);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: rgb(var(--color-nx-ink));
+  }
+
+  .btn-ghost:hover {
+    background-color: rgb(var(--color-nx-neutral-200) / 0.5);
+  }
+
+  .btn-ghost:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--color-nx-accent-mint) / 0.5);
+  }
+
+  .card {
+    background-color: rgb(var(--color-nx-surface));
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 300ms ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: scale(1.02);
+  }
+
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 150ms ease;
+  }
+
+  .tag-pill-primary {
+    background-color: rgb(var(--color-nx-accent-pink) / 0.1);
+    color: rgb(var(--color-nx-accent-pink));
+  }
+
+  .tag-pill-primary:hover {
+    transform: scale(1.1);
+  }
+
+  .tag-pill-mint {
+    background-color: rgb(var(--color-nx-accent-mint) / 0.1);
+    color: rgb(var(--color-nx-accent-mint));
+  }
+
+  .tag-pill-mint:hover {
+    transform: scale(1.1);
+  }
+
+  .tag-pill-coral {
+    background-color: rgb(var(--color-nx-accent-coral) / 0.1);
+    color: rgb(var(--color-nx-accent-coral));
+  }
+
+  .tag-pill-coral:hover {
+    transform: scale(1.1);
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid rgb(var(--color-nx-neutral-200));
+    border-radius: 8px;
+    background-color: rgb(var(--color-nx-surface));
+    transition: all 150ms ease;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: rgb(var(--color-nx-accent-mint));
+    box-shadow: 0 0 0 2px rgb(var(--color-nx-accent-mint) / 0.2);
+  }
+
+  .glass-frost {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .gradient-sunset {
+    background: linear-gradient(145deg, rgb(187, 60, 115) 0%, rgb(239, 114, 95) 60%, #FFD4A3 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(145deg, rgb(187, 60, 115), rgb(239, 114, 95));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .bg-nx-bg { background-color: rgb(var(--color-nx-bg)); }
+  .bg-nx-surface { background-color: rgb(var(--color-nx-surface)); }
+  .bg-nx-accent-pink { background-color: rgb(var(--color-nx-accent-pink)); }
+  .bg-nx-accent-coral { background-color: rgb(var(--color-nx-accent-coral)); }
+  .bg-nx-accent-mint { background-color: rgb(var(--color-nx-accent-mint)); }
+  .bg-nx-accent-lime { background-color: rgb(var(--color-nx-accent-lime)); }
+  .bg-nx-neutral-200 { background-color: rgb(var(--color-nx-neutral-200)); }
+
+  .text-nx-ink { color: rgb(var(--color-nx-ink)); }
+  .text-nx-accent-pink { color: rgb(var(--color-nx-accent-pink)); }
+  .text-nx-accent-coral { color: rgb(var(--color-nx-accent-coral)); }
+  .text-nx-accent-mint { color: rgb(var(--color-nx-accent-mint)); }
+  .text-nx-accent-lime { color: rgb(var(--color-nx-accent-lime)); }
+  .text-nx-neutral-400 { color: rgb(var(--color-nx-neutral-400)); }
+
+  .border-nx-neutral-200 { border-color: rgb(var(--color-nx-neutral-200)); }
+  .border-nx-accent-mint { border-color: rgb(var(--color-nx-accent-mint)); }
+
+  .shadow-elev-1 { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
+  .shadow-elev-2 { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); }
+  .shadow-elev-3 { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.10); }
+
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  .font-mono { font-family: var(--font-mono); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-mint {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 400ms cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+
+.animate-pulse-mint {
+  animation: pulse-mint 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
