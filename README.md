@@ -1,4 +1,4 @@
-# NebulaQueue - AI-Powered Content Pipeline Platform
+# LetContentFlow - AI-Powered Content Pipeline Platform
 
 > Transform your content chaos into a strategic pipeline. NebulaQueue helps creators and startups coordinate ideation, optimize timing, and amplify their reach across all platforms.
 
